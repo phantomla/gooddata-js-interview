@@ -50,6 +50,9 @@ We are looking for re-usable code. You are strongly encouraged to "over-engineer
 ###### Charts do not get loaded.
 * Most likely, you are not logged in correctly. Check the Network tab in Google Chrome DevTools. If you see `HTTP 401 ERROR`, visit https://localhost:3000/account.html and log in properly.
 
+##### You get the "Your connection is not private" error in Chrome
+* To work around this, enable the [chrome://flags/#allow-insecure-localhost](chrome://flags/#allow-insecure-localhost) flag while working on the assignment. 
+
 ###### Anything else?
 * Contact your recruiter for further information.
 
