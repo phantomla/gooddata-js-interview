@@ -1,9 +1,9 @@
 // Copyright (C) 2007-2019, GoodData(R) Corporation. All rights reserved.
 
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
-    app.use(proxy("/gdc", {
+    app.use(createProxyMiddleware("/gdc", {
         "changeOrigin": true,
         "cookieDomainRewrite": "localhost",
         "secure": false,
@@ -16,12 +16,12 @@ module.exports = function (app) {
             proxyReq.setHeader('accept-encoding', 'identity')
         }
     }));
-    app.use(proxy("/*.html", {
+    app.use(createProxyMiddleware("/*.html", {
         "changeOrigin": true,
         "secure": false,
         "target": "https://developer.na.gooddata.com"
     }));
-    app.use(proxy("/packages/*.{js,css}", {
+    app.use(createProxyMiddleware("/packages/*.{js,css}", {
         "changeOrigin": true,
         "secure": false,
         "target": "https://developer.na.gooddata.com"
